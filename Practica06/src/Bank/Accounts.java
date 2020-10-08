@@ -19,8 +19,7 @@ public class Accounts {
 			
 			switch (operation) {
 			
-			case "A":
-				
+			case "A":				
 			case "a":
 				
 				System.out.println("What's your name?");
@@ -33,11 +32,9 @@ public class Accounts {
 				System.out.println("Account seccesfully created \n" + newAccount);
 				
 				exit = false;
-				
 				break;
 				
-			case "D":
-				
+			case "D":	
 			case "d":
 				
 				account = getAccount(accountsArray);
@@ -48,11 +45,9 @@ public class Accounts {
 					System.out.println(account);
 				}				
 				exit = false;
-				
 				break;
 				
-			case "W":
-				
+			case "W":	
 			case "w":
 				
 				account = getAccount(accountsArray);
@@ -68,11 +63,9 @@ public class Accounts {
 					}
 				}				
 				exit = false;
-				
 				break;
 				
-			case "T":
-				
+			case "T":	
 			case "t":
 				
 				account = getAccount(accountsArray);
@@ -99,12 +92,10 @@ public class Accounts {
 					}
 				}
 				exit = false;
-				
 				break;
 				
 				
-			case "C":
-				
+			case "C":	
 			case "c":
 				
 				account = getAccount(accountsArray);
@@ -116,23 +107,19 @@ public class Accounts {
 					System.out.println(account);
 				}				
 				exit = false;
-				
 				break;
 				
-			case "X":				
-				
+			case "X":					
 			case "x":
 				
 				System.out.println("GoodBye");
 				
 				exit = true;
-				
 				break;
 				
 			default:
 				
 				exit = true;
-				
 				break;	
 			}
 			
@@ -160,8 +147,7 @@ public class Accounts {
 			return true;
 		}
 		
-		return false;
-		
+		return false;	
 	}
 	
 	public static Account getAccount (ArrayList<Account> accounts) {
