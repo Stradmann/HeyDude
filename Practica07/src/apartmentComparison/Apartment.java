@@ -59,4 +59,11 @@ public class Apartment {
 	public void setPricePerSquareMeter(int newValue) {
 		this.pricePerSquareMeter = newValue;
 	}
+	
+	//TOSTRING
+	@Override
+	public String toString() {
+		
+		return "This apartment have " + this.getRooms() + "rooms, " + this.getSquareMeters() + "square meters. It costs " + this.absolutPrice() + " euros"; 
+	}
 }
