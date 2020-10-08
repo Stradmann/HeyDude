@@ -15,8 +15,6 @@ public class Accounts {
 			System.out.println("Open new (A)ccount, (D)eposit, (W)ithdraw, (T)ransfer, Get (C)redit, e(X)it");
 			String operation = read.nextLine();
 			
-			String owner;
-			int accountIndex;
 			Account account;
 			
 			switch (operation) {
@@ -42,20 +40,13 @@ public class Accounts {
 				
 			case "d":
 				
-				System.out.println("What's your name?");
-				owner = read.nextLine();
-				accountIndex = getAccount(accountsArray, owner);
-				if (accountIndex == -1) {
-					System.out.println("You don't have any account");
-					exit = false;
-					break;
-				}
-				account = accountsArray.get(accountIndex);
-				System.out.println("How much you want to deposit?");
-				double deposit = Double.valueOf(read.nextLine());
-				account.deposit(deposit);
-				System.out.println(account);
-				
+				account = getAccount(accountsArray);
+				if (account != null) {
+					System.out.println("How much you want to deposit?");
+					double deposit = Double.valueOf(read.nextLine());
+					account.deposit(deposit);
+					System.out.println(account);
+				}				
 				exit = false;
 				
 				break;
@@ -64,25 +55,18 @@ public class Accounts {
 				
 			case "w":
 				
-				System.out.println("What's your name?");
-				owner = read.nextLine();
-				accountIndex = getAccount(accountsArray, owner);
-				if (accountIndex == -1) {
-					System.out.println("You don't have any account");
-					exit = false;
-					break;
-				}
-				account = accountsArray.get(accountIndex);
-				System.out.println("How much you want to withdraw?");
-				double withdraw = Double.valueOf(read.nextLine());
-				if (haveFounds(account, withdraw)) {
-					account.withdrawal(withdraw);
-					System.out.println(account);
-				}else {
-					System.out.println("You don't have enoght founds");
-					System.out.println(account);
-				}
-				
+				account = getAccount(accountsArray);
+				if (account != null) {
+					System.out.println("How much you want to withdraw?");
+					double withdraw = Double.valueOf(read.nextLine());
+					if (haveFounds(account, withdraw)) {
+						account.withdrawal(withdraw);
+						System.out.println(account);
+					}else {
+						System.out.println("You don't have enoght founds");
+						System.out.println(account);
+					}
+				}				
 				exit = false;
 				
 				break;
@@ -91,58 +75,46 @@ public class Accounts {
 				
 			case "t":
 				
-				System.out.println("What's your name?");
-				owner = read.nextLine();
-				accountIndex = getAccount(accountsArray, owner);
-				if (accountIndex == -1) {
-					System.out.println("You don't have any account");
-					exit = false;
-					break;
+				account = getAccount(accountsArray);
+				if (account != null) {
+					System.out.println("Who is the recipient?");
+					String recipient = read.nextLine();
+					int recipientAccountIndex = checkAccount(accountsArray, recipient);
+					if (recipientAccountIndex == -1) {
+						System.out.println("Recipient don't have any account");
+						exit = false;
+						break;
+					}
+					Account recipientAccount = accountsArray.get(recipientAccountIndex);
+					System.out.println("How much you want to transfer?");
+					double transfer = Double.valueOf(read.nextLine());
+					if (haveFounds(account, transfer)) {
+						account.withdrawal(transfer);
+						recipientAccount.deposit(transfer);
+						System.out.println(account);
+						System.out.println(recipientAccount);
+						
+					}else {
+						System.out.println("You don't have enoght founds");
+					}
 				}
-				account = accountsArray.get(accountIndex);
-				System.out.println("Who is the recipient?");
-				String recipient = read.nextLine();
-				int recipientAccountIndex = getAccount(accountsArray, recipient);
-				if (recipientAccountIndex == -1) {
-					System.out.println("Recipient don't have any account");
-					exit = false;
-					break;
-				}
-				Account recipientAccount = accountsArray.get(recipientAccountIndex);
-				System.out.println("How much you want to transfer?");
-				double transfer = Double.valueOf(read.nextLine());
-				if (haveFounds(account, transfer)) {
-					account.withdrawal(transfer);
-					recipientAccount.deposit(transfer);
-					System.out.println(account);
-					System.out.println(recipientAccount);
-					exit = false;
-					break;
-				}else {
-					System.out.println("You don't have enoght founds");
-					exit = false;
-					break;
-				}
+				exit = false;
+				
+				break;
+				
 				
 			case "C":
 				
 			case "c":
 				
-				System.out.println("What's your name?");
-				owner = read.nextLine();
-				accountIndex = getAccount(accountsArray, owner);
-				if (accountIndex == -1) {
-					System.out.println("You don't have any account");
-					exit = false;
-					break;
-				}
-				account = accountsArray.get(accountIndex);
-				System.out.println("How much you need?");
-				double credit = Double.valueOf(read.nextLine());
-				account.deposit(credit);
-				System.out.println("Done! You must return it with 200% of interest. MUAHAHAHAHA!!");
-				System.out.println(account);
-				
+				account = getAccount(accountsArray);
+				if (account != null) {
+					System.out.println("How much you need?");
+					double credit = Double.valueOf(read.nextLine());
+					account.deposit(credit);
+					System.out.println("Done! You must return it with 200% of interest. MUAHAHAHAHA!!");
+					System.out.println(account);
+				}				
 				exit = false;
 				
 				break;
@@ -172,7 +144,7 @@ public class Accounts {
 		}
 	}
 	
-	public static int getAccount (ArrayList<Account> accounts, String owner) {
+	public static int checkAccount (ArrayList<Account> accounts, String owner) {
 				
 		for (int i = 0; i < accounts.size(); i++) {
 			if (accounts.get(i).getOwner().equals(owner)) {
@@ -190,5 +162,19 @@ public class Accounts {
 		
 		return false;
 		
+	}
+	
+	public static Account getAccount (ArrayList<Account> accounts) {
+		
+		Scanner read = new Scanner(System.in);
+		System.out.println("What's your name?");
+		String owner = read.nextLine();
+		int accountIndex = checkAccount(accounts, owner);
+		if (accountIndex == -1) {
+			System.out.println("You don't have any account");
+			return null;
+		}
+		Account account = accounts.get(accountIndex);
+		return account;
 	}
 }
