@@ -38,6 +38,7 @@ public class Date {
 		}
 	}
 	
+	//GETTERS & SETTERS
 	public int getYear() {
 		
 		return this.year;
@@ -68,6 +69,7 @@ public class Date {
 		this.year = day;
 	}
 	
+	//TO STRING
 	@Override
 	public String toString() {
 		
