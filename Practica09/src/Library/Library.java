@@ -33,6 +33,28 @@ public class Library {
 		return lookedForBooks;
 	}
 	
+	public ArrayList<Book> findedBooksByPublisher (String publisher){
+		
+		lookedForBooks.clear();
+		for (Book book : books) {
+			if (book.getPublisher().contains(publisher)) {
+				lookedForBooks.add(book);
+			}
+		}
+		return lookedForBooks;
+	}
+	
+	public ArrayList<Book> findedBooksByYear (int year){
+		
+		lookedForBooks.clear();
+		for (Book book : books) {
+			if (book.getYear() == year) {
+				lookedForBooks.add(book);
+			}
+		}
+		return lookedForBooks;
+	}
+	
 	//GETTERS & SETTERS
 	public String getName() {
 		

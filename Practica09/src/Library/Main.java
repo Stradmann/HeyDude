@@ -25,6 +25,7 @@ public class Main {
 				Library newLibrary = new Library(read.nextLine());
 				libraries.add(newLibrary);
 				System.out.println("You created " + newLibrary.getName() + "library");
+				String printString = "";
 				exit = false;
 				break;
 				
@@ -49,7 +50,7 @@ public class Main {
 			case "T":
 				System.out.println("What title are you looking for?");
 				String schTitle = Utilities.prepareStringToStore(read.nextLine());
-				String printString = "";
+				printString = "";
 				for(Library library :libraries) {
 					ArrayList<Book> findedBooks = library.findedBooksByTitle(schTitle);
 					if (findedBooks.size() != 0) {
@@ -64,7 +65,47 @@ public class Main {
 				break;
 				
 			case "P":
+				System.out.println("What publisher are you looking for?");
+				String schPublisher = Utilities.prepareStringToStore(read.nextLine());
+				printString = "";
+				for(Library library :libraries) {
+					ArrayList<Book> findedBooks = library.findedBooksByPublisher(schPublisher);
+					if (findedBooks.size() != 0) {
+						printString = "Library " + library.getName() + ":\n";
+						for (Book book : findedBooks) {
+							printString += " " + book + "\n";
+						}
+					}
+					System.out.println(printString);
+				}
+				exit = false;
+				break;
 				
+			case "Y":
+				System.out.println("What year are you looking for?");
+				int schYear = Integer.valueOf(read.nextLine());
+				printString = "";
+				for(Library library :libraries) {
+					ArrayList<Book> findedBooks = library.findedBooksByYear(schYear);
+					if (findedBooks.size() != 0) {
+						printString = "Library " + library.getName() + ":\n";
+						for (Book book : findedBooks) {
+							printString += " " + book + "\n";
+						}
+					}
+					System.out.println(printString);
+				}
+				
+				exit = false;
+				break;
+				
+			case "X":
+				exit = true;
+				break;
+				
+			default:
+				exit = true;
+				break;
 			}
 		}
 	}
