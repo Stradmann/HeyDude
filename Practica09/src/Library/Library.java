@@ -6,7 +6,7 @@ public class Library {
 	
 	private String name;
 	private ArrayList<Book> books;
-	private ArrayList<Book> lookedForBooks;
+	private ArrayList<Book> lookedForBooks = new ArrayList<Book>();
 	
 	//CONSTRUCTOR
 	public Library (String name) {

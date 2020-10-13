@@ -9,6 +9,7 @@ public class Main {
 		
 		Scanner read = new Scanner(System.in);
 		ArrayList<Library> libraries = new ArrayList<Library>();
+		ArrayList<Book> findedBooks = new ArrayList<Book>();
 		
 		boolean exit = false;
 		while (!exit) {
@@ -24,7 +25,7 @@ public class Main {
 				System.out.println("Whats the name of the library?");
 				Library newLibrary = new Library(read.nextLine());
 				libraries.add(newLibrary);
-				System.out.println("You created " + newLibrary.getName() + "library");
+				System.out.println("You created " + newLibrary.getName() + " library");
 				String printString = "";
 				exit = false;
 				break;
@@ -52,7 +53,7 @@ public class Main {
 				String schTitle = Utilities.prepareStringToStore(read.nextLine());
 				printString = "";
 				for(Library library :libraries) {
-					ArrayList<Book> findedBooks = library.findedBooksByTitle(schTitle);
+					findedBooks = library.findedBooksByTitle(schTitle);
 					if (findedBooks.size() != 0) {
 						printString = "Library " + library.getName() + ":\n";
 						for (Book book : findedBooks) {
@@ -69,7 +70,7 @@ public class Main {
 				String schPublisher = Utilities.prepareStringToStore(read.nextLine());
 				printString = "";
 				for(Library library :libraries) {
-					ArrayList<Book> findedBooks = library.findedBooksByPublisher(schPublisher);
+					findedBooks = library.findedBooksByPublisher(schPublisher);
 					if (findedBooks.size() != 0) {
 						printString = "Library " + library.getName() + ":\n";
 						for (Book book : findedBooks) {
@@ -86,7 +87,7 @@ public class Main {
 				int schYear = Integer.valueOf(read.nextLine());
 				printString = "";
 				for(Library library :libraries) {
-					ArrayList<Book> findedBooks = library.findedBooksByYear(schYear);
+					findedBooks = library.findedBooksByYear(schYear);
 					if (findedBooks.size() != 0) {
 						printString = "Library " + library.getName() + ":\n";
 						for (Book book : findedBooks) {
