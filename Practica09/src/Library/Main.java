@@ -108,6 +108,7 @@ public class Main {
 				break;
 			}
 		}
+		read.close();
 	}
 	
 	public static Library findLibrary(String name, ArrayList<Library> libraries) {
