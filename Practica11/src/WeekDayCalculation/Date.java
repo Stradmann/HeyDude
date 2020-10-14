@@ -18,7 +18,10 @@ public class Date {
 	
 	//METHODS
 	public boolean dateIsValid() {
-		
+		if (checkYear(this.getYear()) && checkMonth(this.getMonth()) && checkDay(this.getYear(), this.getMonth(), this.getDay())) {
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean checkYear(int year) {
@@ -46,8 +49,13 @@ public class Date {
 				return true;
 			}
 		}if (month == 2) {
-			
+			if (isLeapYear(year) && day >= 1 && day <= 29) {
+				return true;
+			}else if (!isLeapYear(year) && day >= 1 && day <= 1) {
+				return true;
+			}
 		}
+		return false;
 	}
 	
 	public boolean isLeapYear(int year) {
@@ -58,6 +66,43 @@ public class Date {
 		}else {
 			return false;
 		}
+	}
+	
+	public int daysAmount () {
+		return entireYearsCount(this.getYear()) + entireMonthsCount(this.getYear(), this.getMonth()) + daysCount(this.getDay());
+	}
+	
+	public int entireYearsCount(int year) {
+		int days = 0;
+		for (int i = 1978; i < year; i++) {
+			if (isLeapYear(i)) {
+				days += 366;
+			}else {
+				days += 365;
+			}
+		}
+		return days;
+	}
+	
+	public int entireMonthsCount(int year, int month) {
+		int days = 0;
+		for (int i = 1; i < month; i++) {
+			if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) {
+				days += 31;
+			}else if (i == 4 || i == 6 || i == 9 || i == 11){
+				days += 30;
+			}else if (i == 2 && isLeapYear(year)) {
+				days += 29;
+			}else if (i == 2 && !isLeapYear(year)) {
+				days += 28;
+			}
+		}
+		return days;
+	}
+	
+	public int daysCount(int day) {
+		int days = day;
+		return days;
 	}
 	
 	//GETTERS & SETTERS
@@ -71,5 +116,11 @@ public class Date {
 	
 	public int getYear() {
 		return this.year;
+	}
+	
+	//TOSTRING
+	@Override
+	public String toString () {
+		return this.getDay() + "/" + this.getMonth() + "/" + this.getYear();
 	}
 }
