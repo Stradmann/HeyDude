@@ -15,6 +15,11 @@ public class Bird {
 		this.observations = new ArrayList<Observation>();
 	}
 	
+	//METHODS
+	public void addObservation(String viewer) {
+		observations.add(new Observation(viewer));
+	}
+	
 	//GETTERS & SETTERS
 	public String getName() {
 		return this.name;
@@ -26,5 +31,11 @@ public class Bird {
 	
 	public ArrayList<Observation> getObservations() {
 		return this.observations;
+	}
+	
+	//TOSTRING
+	@Override
+	public String toString () {
+		return this.getName() + " (" + this.getLatinName() + ") " + this.getObservations().size() + "observations";
 	}
 }
