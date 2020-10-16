@@ -16,23 +16,20 @@ public class BirdsDB {
 	
 	//METHODS
 	public void addNewBird(Scanner read) {
-		System.out.println("What's the name of the bird?");
-		String name = Utilities.prepareStringToStore(read.nextLine());
-		System.out.println("And it's latin name?");
-		String latinName = Utilities.prepareStringToStore(read.nextLine());
+		String name = Interaction.askForBirdName(read);
+		String latinName = Interaction.askForBirdLatinName(read);
 		birds.add(new Bird(name, latinName));
 	}
 	
 	public void addNewObservation(Scanner read) {
-		System.out.println("What bird you've seen?");
-		String birdName = Utilities.prepareStringToStore(read.nextLine());
+		
+		String birdName = Interaction.askForBirdName(read);
 		Bird bird = findBird(birdName);
+		String viewer = Interaction.askForViewer(read);
 		if (bird == null) {
-			System.out.println("This bird is not in DataBase or not exist");
+			Interaction.birdNotFound();
 			return;
-		}
-		System.out.println("Who have seen it?");
-		String viewer = Utilities.prepareStringToStore(read.nextLine());
+		}		
 		bird.addObservation(viewer);
 	}
 	
@@ -52,11 +49,11 @@ public class BirdsDB {
 	}
 	
 	public void printBird(Scanner read) {
-		System.out.println("What bird do you want to print?");
-		String birdName = Utilities.prepareStringToStore(read.nextLine());
+		
+		String birdName = Interaction.askForBirdName(read);
 		Bird bird = findBird(birdName);
 		if (bird == null) {
-			System.out.println("This bird is not in DataBase or not exist");
+			Interaction.birdNotFound();
 			return;
 		}
 		System.out.println(bird);

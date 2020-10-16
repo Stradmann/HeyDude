@@ -36,6 +36,6 @@ public class Bird {
 	//TOSTRING
 	@Override
 	public String toString () {
-		return this.getName() + " (" + this.getLatinName() + ") " + this.getObservations().size() + "observations";
+		return this.getName() + " (" + this.getLatinName() + ") " + this.getObservations().size() + " observations";
 	}
 }
