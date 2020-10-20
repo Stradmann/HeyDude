@@ -16,5 +16,7 @@ public class CreateStudent {
 		Student newStudent = new Student (firstName, lastName);
 		persondb.addPerson(newStudent);
 		
+		System.out.println("Congratulations! You have been regitered as Student");
+		System.out.println("Your username is: " + newStudent.getUsername() + ", and your password is: " + newStudent.getPassword());
 	}
 }

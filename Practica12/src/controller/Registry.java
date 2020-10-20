@@ -38,6 +38,7 @@ public class Registry {
 				break;
 				
 			case "Directive":
+				CreateDirective.addDirective(read, usersDataBase);
 				break;
 			}
 		}
