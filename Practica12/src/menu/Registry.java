@@ -1,17 +1,17 @@
-package controller;
+package menu;
 
 import java.util.Scanner;
 
 import Utilities.UtilsMenu;
-import menu.RegistryOptions;
+import controller.CreateDirective;
+import controller.CreateStudent;
 import databases.PersonDB;
 
 public class Registry {
 
-	public static void registryProces(Scanner read) {
+	public static void registryProces(Scanner read, PersonDB usersDB) {
 		
 		RegistryOptions registryOps = new RegistryOptions();
-		PersonDB usersDataBase = new PersonDB();
 		
 		boolean exitMenu = false;
 		
@@ -34,11 +34,13 @@ public class Registry {
 				break;
 				
 			case "Student":
-				CreateStudent.addStudent(read, usersDataBase);
+				CreateStudent.addStudent(read, usersDB);
+				exitMenu = true;
 				break;
 				
 			case "Directive":
-				CreateDirective.addDirective(read, usersDataBase);
+				CreateDirective.addDirective(read, usersDB);
+				exitMenu = true;
 				break;
 			}
 		}

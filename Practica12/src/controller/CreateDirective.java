@@ -2,6 +2,10 @@ package controller;
 
 import java.util.Scanner;
 
+import Utilities.UtilsMenu;
+import databases.PersonDB;
+import modules.Directive;
+
 public class CreateDirective {
 	
 	public static void addDirective(Scanner read, PersonDB persondb) {

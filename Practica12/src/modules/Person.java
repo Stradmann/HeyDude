@@ -1,9 +1,12 @@
 package modules;
 
 import Utilities.StringUtilities;
+import databases.PersonDB;
+
+import java.util.Scanner;
 import Utilities.RandomUtilities;
 
-public class Person {
+public abstract class Person {
 
 	private String firstName;
 	private String lastName;
@@ -20,6 +23,11 @@ public class Person {
 		
 		this.username = StringUtilities.getThreeFirstChar(firstName) + StringUtilities.getThreeFirstChar(lastName);
 		this.password = this.getUsername() + RandomUtilities.getSecretNumber();
+	}
+	
+	//METHODS
+	public void showUserMenu(Scanner read, PersonDB usersDB) {
+		
 	}
 	
 	//GETTERS & SETTERS

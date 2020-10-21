@@ -3,11 +3,11 @@ package menu;
 import java.util.Scanner;
 
 import Utilities.UtilsMenu;
-import controller.Registry;
+import databases.PersonDB;
 
 public class MainMenu {
 	
-	public static void mainMenu(Scanner read) {
+	public static void mainMenu(Scanner read, PersonDB usersDB) {
 		
 		OptionsMainMenu mainMenu = new OptionsMainMenu();
 		
@@ -31,11 +31,11 @@ public class MainMenu {
 				break;
 				
 			case "Register":
-				Registry.registryProces(read);
+				Registry.registryProces(read, usersDB);
 				break;
 				
 			case "Login":
-				System.out.println("acces to login options");
+				Login.loginProces(read, usersDB);
 				break;
 			}
 		}

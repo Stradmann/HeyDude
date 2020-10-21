@@ -6,5 +6,4 @@ public class Directive extends Person {
 		
 		super(firstName, lastName);
 	}
-
 }

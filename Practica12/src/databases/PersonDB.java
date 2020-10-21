@@ -17,4 +17,14 @@ public class PersonDB {
 		
 		uniUsers.add(person);
 	}
+	
+	public Person findByUsername(String username) {
+		
+		for (Person person : uniUsers) {
+			if (person.getUsername().equals(username)) {
+				return person;
+			}
+		}
+		return null;
+	}
 }
