@@ -2,6 +2,8 @@ package Utilities;
 
 import java.util.Scanner;
 
+import modules.Date;
+
 public class UtilsMenu {
 	
 	public static String readInput(Scanner read) {
@@ -31,5 +33,12 @@ public class UtilsMenu {
 		
 		System.out.println("Type your password:");
 		return readInput(read);
+	}
+	
+	public static Date askForBirthday(Scanner read) {
+		
+		System.out.println("Type yor birthday in dd,mm,YYYY format:");
+		Date date = DateUtils.createDate(readInput(read));
+		return date;
 	}
 }

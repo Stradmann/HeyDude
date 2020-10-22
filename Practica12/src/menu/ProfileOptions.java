@@ -3,20 +3,19 @@ package menu;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class LogedOptions {
-
+public class ProfileOptions {
+	
 	private ArrayList<String> options;
 	
-	public LogedOptions () {
+	public ProfileOptions() {
 		
 		options = new ArrayList<String>();
-		Collections.addAll(options, "Logout", "Profile", "Studies", "Accommodation", "Leisure", "WalesCard", "Bar-Restaurant");
+		Collections.addAll(options, "Name", "Last Name", "Birthday", "Username", "Password", "Print", "Done");
 	}
 	
-	public void showLogedMainMenu() {
+	public void showProfileOptions() {
 		
-		System.out.println("\r" + "\t" + "Options:");
-		System.out.println("-------------------");
+		System.out.println("What do you want to change?");
 		for(int i = 0; i < options.size(); i++) {
 			System.out.println("\t" + options.get(i));
 		}

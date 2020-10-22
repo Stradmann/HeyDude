@@ -24,7 +24,7 @@ public class Login {
 				continue;
 			}else {
 				System.out.println("You succesfully log in");
-				user.showUserMenu(read, usersDB);
+				LogedMainMenu.logedMainMenu(read, user);
 				break;
 			}
 		}

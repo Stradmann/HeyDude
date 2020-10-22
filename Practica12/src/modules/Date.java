@@ -29,4 +29,11 @@ public class Date {
 	
 		return this.year;
 	}
+	
+	//TOSTRING
+	@Override
+	public String toString() {
+		
+		return this.getDay() + "/" + this.getMonth() + "/" + this.getYear();
+	}
 }
