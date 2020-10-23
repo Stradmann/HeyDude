@@ -37,9 +37,7 @@ public class Main {
 				exitMenu = true;
 				break;
 			}
-		}
-		
-		
+		}		
 	}
 	
 	public static ArrayList<Author> start() {
