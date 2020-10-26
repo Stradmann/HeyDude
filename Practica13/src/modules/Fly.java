@@ -36,4 +36,10 @@ public class Fly {
 	public void setEndAirpòrt(String endAirpòrt) {
 		this.endAirpòrt = endAirpòrt;
 	}
+	
+	@Override
+	public String toString() {
+		
+		return this.plane.getPlaneID() + "(" + this.plane.getCapacity() + " ppl) (" + this.startAirport + " - " + this.endAirpòrt + ")";
+	}
 }

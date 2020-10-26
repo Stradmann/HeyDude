@@ -27,16 +27,24 @@ public class Controller {
 		}
 	}
 	
-	public static void printPlane (Plane plane) {
+	public static void printPlane (Scanner read, PlaneDB planes) {
 		
+		Plane plane = searchPlane(GetInfoUtils.askForPlaneID(read), planes);
+		System.out.println(plane);
 	}
 	
 	public static void printPlanes(PlaneDB planes) {
 		
+		for(Plane plane : planes.getPlanes()) {
+			System.out.println(plane);
+		}
 	}
 	
 	public static void printFlies(FlyDB flies) {
 		
+		for(Fly fly : flies.getFlies()) {
+			System.out.println(fly);
+		}
 	}
 	
 	public static Plane searchPlane(String planeID, PlaneDB planes) {

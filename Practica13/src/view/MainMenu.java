@@ -32,7 +32,7 @@ public class MainMenu {
 				
 			case "x":
 			case "X":
-				break;
+				FlyOperationsMenu.operationMenu(read, planes, flies);
 			
 			default:
 				exitMenu = true;

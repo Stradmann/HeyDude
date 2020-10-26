@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import controller.Controller;
 import db.FlyDB;
 import db.PlaneDB;
 
@@ -25,17 +26,21 @@ public class FlyOperationsMenu {
 			switch(command) {
 			
 			case "1":
+				Controller.printPlanes(planes);
 				break;
 				
 			case "2":
+				Controller.printFlies(flies);
 				break;
 				
 			case "3":
+				Controller.printPlane(read, planes);
 				break;
 				
 			case "X":
 			case "x":
 			default:
+				exitMenu = true;
 				break;
 			}
 		}
