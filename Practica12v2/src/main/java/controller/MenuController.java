@@ -7,24 +7,31 @@ import java.util.Map;
 
 public class MenuController {
 
-	public static Map<String, ArrayList<String>> createMenus(String menuKey){
+	private Map<String, ArrayList<String>> menus;
+	
+	public MenuController() {
 		
-		Map<String, ArrayList<String>> menus = new HashMap<String, ArrayList<String>>();
+		menus = new HashMap<String, ArrayList<String>>();
 		
 		ArrayList<String> mainMenuOptions = new ArrayList<String>();
 		Collections.addAll(mainMenuOptions, "Register", "Login", "Quit");
 		menus.put("Main Menu", mainMenuOptions);
-		
-		return menus;
 	}
 	
-	public static void showMenu(Map<String, ArrayList<String>> menuMap, String selectedMenu) {
+	public void showMenu(String selectedMenu) {
 		
 		System.out.println("\t" + selectedMenu);
 		System.out.println("---------------------");
-		ArrayList<String> menuOptions = menuMap.get(selectedMenu);
+		
+		ArrayList<String> menuOptions = this.menus.get(selectedMenu);
+		
 		for(int i = 0; i < menuOptions.size(); i++) {
 			System.out.println(menuOptions.get(i));
 		}
+	}
+	
+	public String getOption(String selectedMenu, String option) {
+		
+		return menus.get(selectedMenu).get(menus.get(selectedMenu).indexOf(option));
 	}
 }
