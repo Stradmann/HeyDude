@@ -36,4 +36,12 @@ public class Controller {
 		
 		userDAO.saveUser(user);		
 	}
+	
+	public static void printUser(MongoDatabase uniUsersDatabase) {
+		
+		MongoCollection<Document> usersCollection = uniUsersDatabase.getCollection("Users");
+		
+		//Document tofind = new Document();
+		Document tofind = usersCollection.find(eq("name", 'sdgdf')).
+	}
 }

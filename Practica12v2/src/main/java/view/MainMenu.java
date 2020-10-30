@@ -33,10 +33,10 @@ public class MainMenu {
 			case "Register":
 				User user = CreateUserInterface.CreateUser(read);
 				Controller.add(userDAO, user);
-				
 				break;
 				
 			case "Login":
+				
 				break;
 			}
 		}
