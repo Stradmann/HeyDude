@@ -8,6 +8,8 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+import static com.mongodb.client.model.Filters.eq;
+
 import dao.UserDAO;
 import modules.User;
 
@@ -42,6 +44,7 @@ public class Controller {
 		MongoCollection<Document> usersCollection = uniUsersDatabase.getCollection("Users");
 		
 		//Document tofind = new Document();
-		Document tofind = usersCollection.find(eq("name", 'sdgdf')).
+		String username = "userName";
+		Document tofind = usersCollection.find(eq("username", "")).first();
 	}
 }
