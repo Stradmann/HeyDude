@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Quotes</title>
+</head>
+<body>
+	<h1>Quotes</h1>
+	<table>
+		<tr th:each = "quote:${quotes}">
+			<td th:text = "${quote.sentence}"></td>
+		</tr>
+	</table>
+</body>
+</html>
