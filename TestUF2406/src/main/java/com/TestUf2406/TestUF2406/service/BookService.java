@@ -1,5 +1,7 @@
 package com.TestUf2406.TestUF2406.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,10 @@ public class BookService {
 	public void insertBook (Book book) {
 
 		repository.save(book);
+	}
+	
+	public Optional<Book> findById (long id) {
+
+		return repository.findById(id);
 	}
 }

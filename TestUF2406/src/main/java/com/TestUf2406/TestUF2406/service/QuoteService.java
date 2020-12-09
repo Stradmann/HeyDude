@@ -18,7 +18,7 @@ public class QuoteService {
 		return repository.findAll();
 	}
 	
-	public void insertBook (Quote quote) {
+	public void insertQuote (Quote quote) {
 
 		repository.save(quote);
 	}
