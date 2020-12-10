@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Empire Information</title>
+</head>
+<body>
+	<h1>Empires Information</h1>
+	<table>
+		<tr th:each = "info:${empireInfo}">
+			<td th:text = "${info.name}"></td>
+			<td th:text = "${info.govermentType}"></td>
+			<td><a th:href = "@{/empire/showPlanets(empireID = ${info.id})}">link</a></td>
+		</tr>
+	</table>
+</body>
+</html>
