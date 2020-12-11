@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Planets Information</title>
+</head>
+<body>
+	<h1>Planets Table</h1>
+	<table>
+		<tr th:each = "planet:${planets}">
+			<td th:text = "${planet.name}"></td>
+			<td th:text = "${planet.sector}"></td>
+			<td th:text = "${planet.population}"></td>
+		</tr>
+	</table>
+</body>
+</html>
